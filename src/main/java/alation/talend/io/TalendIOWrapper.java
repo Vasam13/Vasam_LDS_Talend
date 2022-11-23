@@ -49,10 +49,10 @@ public class TalendIOWrapper {
         TalendIOWrapper ioWrapper;
         try {
             ioWrapper = new TalendIOWrapper();
-            // ioWrapper.checkConfigInfo(configuration);
+            ioWrapper.checkConfigInfo(configuration);
             ioWrapper.xmlReader = new TalendXMLReader(configuration);
             ioWrapper.configuration = configuration;
-            // ioWrapper.validate();
+            ioWrapper.validate();
         } catch (Exception ex) {
             LOGGER.error(TalendErrorCode.ACCESS_DENIED.getDescription(), ex);
             throw new ValidationException(ex);

@@ -29,10 +29,10 @@ public class GitHelper {
     public GitHelper(TalendConfiguration configuration, File location) {
         GitConfig gitConfig = new GitConfig();
         gitConfig.setUsePersonalAccessToken(true);
-//        gitConfig.setUrl(configuration.getXMLFolderUrl());
-//        gitConfig.setPersonalAccessToken(configuration.getAccessToken());
-        gitConfig.setUrl("https://github.com/Vasam13/Talend_xml.git");
-        gitConfig.setPersonalAccessToken("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");
+        gitConfig.setUrl(configuration.getXMLFolderUrl());
+        gitConfig.setPersonalAccessToken(configuration.getAccessToken());
+//        gitConfig.setUrl("https://github.com/Vasam13/Talend_xml.git");
+//        gitConfig.setPersonalAccessToken("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");
         this.gitConfig = gitConfig;
         this.folderLocation = location;
     }
