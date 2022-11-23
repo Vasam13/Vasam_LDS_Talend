@@ -38,8 +38,7 @@ import java.util.List;
  * MetadataExtraction interface
  */
 public class TalendDatasource
-        implements IODatasource<TalendConfiguration>, MetadataExtraction<TalendConfiguration>,
-        DirectLineageExtraction<TalendConfiguration> {
+        implements IODatasource<TalendConfiguration>, MetadataExtraction<TalendConfiguration>{
 
     private static final Logger LOGGER = Logger.getLogger(TalendDatasource.class.getName());
 
@@ -227,27 +226,27 @@ public class TalendDatasource
         MetadataExtraction.super.tableExtraction(request, stream);
     }
 
-    @Override
-    public void directLineageExtraction(
-            ExtractionRequest<TalendConfiguration> extractionRequest,
-            Stream<DirectLineageExtractionMessage> stream) {
-        try {
-            TalendConfiguration configuration = extractionRequest.getConfiguration();
-            TalendIOWrapper ioWrapper = TalendIOWrapper.getAuthenticatedInstance(configuration);
-            TalendMDEParameters parameters = new TalendMDEParameters(ioWrapper, configuration);
-            TalendMDExtractionArguments extractionArgs =
-                    new TalendMDExtractionArguments(configuration, extractionRequest.getSchemaIds(), extractionRequest.isIncludeFilter());
-            new TalendExtractor(ioWrapper, parameters, extractionArgs).getLineagePaths().forEach(lineagePath -> {
-                try {
-                    stream.stream(lineagePath);
-                } catch (StreamException ex) {
-                    LOGGER.error(TalendErrorCode.LINEAGE_ERROR, ex);
-                }
-            });
-        } catch (ExtractionException ex) {
-            LOGGER.error(TalendErrorCode.MDE_EXTRACTION_ERROR.getDescription(), ex);
-        } catch (ValidationException ex) {
-            LOGGER.error(TalendErrorCode.ACCESS_DENIED.getDescription(), ex);
-        }
-    }
+//    @Override
+//    public void directLineageExtraction(
+//            ExtractionRequest<TalendConfiguration> extractionRequest,
+//            Stream<DirectLineageExtractionMessage> stream) {
+//        try {
+//            TalendConfiguration configuration = extractionRequest.getConfiguration();
+//            TalendIOWrapper ioWrapper = TalendIOWrapper.getAuthenticatedInstance(configuration);
+//            TalendMDEParameters parameters = new TalendMDEParameters(ioWrapper, configuration);
+//            TalendMDExtractionArguments extractionArgs =
+//                    new TalendMDExtractionArguments(configuration, extractionRequest.getSchemaIds(), extractionRequest.isIncludeFilter());
+//            new TalendExtractor(ioWrapper, parameters, extractionArgs).getLineagePaths().forEach(lineagePath -> {
+//                try {
+//                    stream.stream(lineagePath);
+//                } catch (StreamException ex) {
+//                    LOGGER.error(TalendErrorCode.LINEAGE_ERROR, ex);
+//                }
+//            });
+//        } catch (ExtractionException ex) {
+//            LOGGER.error(TalendErrorCode.MDE_EXTRACTION_ERROR.getDescription(), ex);
+//        } catch (ValidationException ex) {
+//            LOGGER.error(TalendErrorCode.ACCESS_DENIED.getDescription(), ex);
+//        }
+//    }
 }
