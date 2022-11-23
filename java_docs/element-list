@@ -1,0 +1,16 @@
+alation.talend
+alation.talend.configuration
+alation.talend.datasource
+alation.talend.enums
+alation.talend.io
+alation.talend.io.git
+alation.talend.io.util
+alation.talend.mde
+alation.talend.mde.extractor
+alation.talend.mde.extractor.iterators
+alation.talend.mde.transformations
+alation.talend.mde.types
+alation.talend.resources
+sdk.core.ext.datasource
+sdk.core.ext.error
+sdk.core.ext.manifest.configuration

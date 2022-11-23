@@ -1,0 +1,25 @@
+[
+  {
+    "key": "xml_source",
+    "value": "Github",
+    "type": "SELECT"
+  },
+  {
+    "key": "xml_folder_URL",
+    "value": "https://github.com/Vasam13/Talend_xml.git",
+    "type": "TEXT"
+  },
+  {
+    "key": "token",
+    "value": "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",
+    "type": "ENCRYPTEDTEXT"
+  },
+  {
+    "key": "log_level",
+    "value": "INFO",
+    "type": "SELECT"
+  }
+]
+
+
+

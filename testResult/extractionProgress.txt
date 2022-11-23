@@ -1,0 +1,6 @@
+{"extractionProgressCase_":1,"extractionProgress_":"Extracting schemas...","memoizedIsInitialized":-1,"unknownFields":{"fields":{},"fieldsDescending":{}},"memoizedSize":-1,"memoizedHashCode":0}
+{"extractionProgressCase_":2,"extractionProgress_":1,"memoizedIsInitialized":-1,"unknownFields":{"fields":{},"fieldsDescending":{}},"memoizedSize":-1,"memoizedHashCode":0}
+{"extractionProgressCase_":1,"extractionProgress_":"Extracting tables...","memoizedIsInitialized":-1,"unknownFields":{"fields":{},"fieldsDescending":{}},"memoizedSize":-1,"memoizedHashCode":0}
+{"extractionProgressCase_":2,"extractionProgress_":2,"memoizedIsInitialized":-1,"unknownFields":{"fields":{},"fieldsDescending":{}},"memoizedSize":-1,"memoizedHashCode":0}
+{"extractionProgressCase_":1,"extractionProgress_":"Extracting columns...","memoizedIsInitialized":-1,"unknownFields":{"fields":{},"fieldsDescending":{}},"memoizedSize":-1,"memoizedHashCode":0}
+{"extractionProgressCase_":2,"extractionProgress_":3,"memoizedIsInitialized":-1,"unknownFields":{"fields":{},"fieldsDescending":{}},"memoizedSize":-1,"memoizedHashCode":0}
