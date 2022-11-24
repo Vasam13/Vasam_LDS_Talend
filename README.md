@@ -3,9 +3,9 @@ Talend connector for Alation
 
 # Installing Jar dependencies
 # 1. sdk-3.10.0-jar-with-dependencies.jar 
-mvn install:install-file -Dfile=sdk-3.10.0-jar-with-dependencies.jar -DgroupId=rdbms -DartifactId=sdk -Dversion=3.10.0 -Dpackaging=jar
+mvn install:install-file -Dfile=sdk-4.1.4-jar-with-dependencies.jar -DgroupId=rdbms -DartifactId=sdk -Dversion=3.10.0 -Dpackaging=jar
 # 2. Install sdk_tests-3.1.2-jar-with-dependencies.jar
-mvn install:install-file -Dfile=sdk_tests-3.1.2-jar-with-dependencies.jar -DgroupId=rdbms -DartifactId=sdk_tests -Dversion=3.1.2 -Dpackaging=jar
+mvn install:install-file -Dfile=sdk_tests-3.1.2-jar-with-dependencies.jar -DgroupId=rdbms -DartifactId=sdk_tests -Dversion=4.1.4 -Dpackaging=jar
 
 
 # Compile with maven windows os 
