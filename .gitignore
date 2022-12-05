@@ -2,3 +2,4 @@ target
 target/**
 .idea
 alation-talend.zip
+*.class

@@ -3,12 +3,14 @@ package alation.talend.mde;
 import alation.sdk.core.error.ExtractionException;
 import alation.sdk.core.models.DataSource;
 import alation.sdk.core.models.Self;
+import alation.sdk.dl.mde.models.Dataflow;
 import alation.sdk.dl.mde.models.LineageObject;
 import alation.sdk.dl.mde.models.LineagePath;
 import alation.sdk.dl.mde.models.NativeObject;
 import alation.sdk.rdbms.mde.models.*;
 import alation.talend.io.TalendIOWrapper;
 import alation.talend.mde.transformations.ExpressionEngine;
+import alation.talend.mde.types.Connection;
 import alation.talend.mde.types.Node;
 import alation.talend.mde.types.ProcessType;
 import alation.talend.resources.Constants;
@@ -236,7 +238,7 @@ public class TalendToAlationMDMapper {
         return tables.stream().filter(table -> uniqueName.equals(table.getOwner())).findFirst().orElse(null);
     }
 
-    private LineagePath getLineagePath(Table sourceTable, Table targetTable) {
+    private LineagePath getLineagePath(Connection connection, Table sourceTable, Table targetTable) {
         List<LineageObject> sources = new ArrayList<>();
         LineageObject source = new LineageObject(new NativeObject(
                 new DataSource(DataSource.SourceTypes.RDBMS, new Self()),
@@ -247,7 +249,13 @@ public class TalendToAlationMDMapper {
                 new DataSource(DataSource.SourceTypes.RDBMS, new Self()),
                 targetTable.getId()
         ));
-        return new LineagePath(sources, target);
+        LineagePath lineagePath =  new LineagePath(sources, target);
+        String label= connection.getLabel();
+        String connectorName = connection.getConnectorName();
+        String dataFlow = label + Constants.STR_OPEN_BRACKET + connectorName + Constants.STR_CLOSE_BRACKET;
+        Dataflow dataflow = new Dataflow(dataFlow);
+        lineagePath.setDataflow(dataflow);
+        return lineagePath;
     }
 
     public List<LineagePath> extractLineagePaths() {
@@ -258,10 +266,7 @@ public class TalendToAlationMDMapper {
                 Table sourceTable = getTableByUniqueName(job, connection.getSource());
                 Table targetTable = getTableByUniqueName(job, connection.getTarget());
                 if(sourceTable != null && targetTable != null) {
-                    System.out.println("Creating Lineage For ");
-                    System.out.println(" Source Table: " + sourceTable.getId().getName().getOriginal());
-                    System.out.println(" Target Table: " + targetTable.getId().getName().getOriginal());
-                    lineagePaths.add(getLineagePath(sourceTable, targetTable));
+                    lineagePaths.add(getLineagePath(connection, sourceTable, targetTable));
                 }
             });
         });

@@ -3,7 +3,7 @@ Talend connector for Alation
 
 # Installing Jar dependencies
 # 1. sdk-3.10.0-jar-with-dependencies.jar 
-mvn install:install-file -Dfile=sdk-4.1.4-jar-with-dependencies.jar -DgroupId=rdbms -DartifactId=sdk -Dversion=3.10.0 -Dpackaging=jar
+mvn install:install-file -Dfile=sdk-4.1.4-jar-with-dependencies.jar -DgroupId=rdbms -DartifactId=sdk -Dversion=4.1.4 -Dpackaging=jar
 # 2. Install sdk_tests-3.1.2-jar-with-dependencies.jar
 mvn install:install-file -Dfile=sdk_tests-3.1.2-jar-with-dependencies.jar -DgroupId=rdbms -DartifactId=sdk_tests -Dversion=4.1.4 -Dpackaging=jar
 
@@ -15,7 +15,7 @@ mvn compile exec:java -D"exec.mainClass"="alation.talend.Main" -D"exec.args"="ST
 mvn compile exec:java -D"exec.mainClass"="alation.talend.Main" -D"exec.args"="START_SERVER"
 
 # Verifiy Talend datasource
-java -cp sdk-3.8.2-jar-with-dependencies.jar alation.sdk.rdbms.grpc.client.AbstractRDBMSClient --conf configuration-talend.json -o testResult CONFIGURATION_VERIFICATION
+java -cp sdk-4.1.4-jar-with-dependencies.jar alation.sdk.rdbms.grpc.client.AbstractRDBMSClient --conf configuration-talend.json -o testResult CONFIGURATION_VERIFICATION
 
 
 
